@@ -22,28 +22,31 @@ export default {
     return { name: "", price: "", products: "" };
   },
   async mounted() {
-    // const response = await fetch(
-    //   "http://ec2-3-64-62-57.eu-central-1.compute.amazonaws.com:3000/products-list"
-    // );
-    // const data = await response.json();
-    // console.log(data, "response");
-    // this.products = data;
+    const response = await fetch(
+      "http://ec2-3-64-62-57.eu-central-1.compute.amazonaws.com:3000/products-list"
+    );
+    const data = await response.json();
+    console.log(data, "response");
+    this.products = data;
   },
   methods: {
     processForm: async function() {
-      console.log({ name: this.name, product: this.product });
-      // const response = await fetch(
-      //   "http://ec2-3-64-62-57.eu-central-1.compute.amazonaws.com:3000/products",
-      //   {
-      //     method: "POST",
-      //     body: JSON.stringify({
-      //       name: this.name,
-      //       id: new Date(),
-      //       price: parseFloat(this.price),
-      //     }),
-      //   }
-      // );
-      // console.log({ response });
+      console.log({ name: this.name, price: this.price });
+      const response = await fetch(
+        "http://ec2-3-64-62-57.eu-central-1.compute.amazonaws.com:3000/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: this.name,
+            id: new Date(),
+            price: parseFloat(this.price),
+          }),
+        }
+      );
+      console.log({ response });
     },
   },
 };
