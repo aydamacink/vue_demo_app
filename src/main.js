@@ -1,11 +1,10 @@
-import { createApp } from "vue";
+import { createApp, h } from "vue";
 import App from "./App.vue";
 import * as Sentry from "@sentry/vue";
 import { Integrations } from "@sentry/tracing";
 import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import Vue from "vue";
 import VueApollo from "vue-apollo";
 
 Sentry.init({
@@ -40,12 +39,10 @@ const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
 });
 
-// Vue.use(VueApollo);
-
 
 createApp({
   el: "#app",
   // inject apolloProvider here like vue-router or vuex
   apolloProvider,
-  render: (h) => h(App),
+  render: () => h(App),
 }).mount("#app");

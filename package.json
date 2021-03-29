@@ -10,6 +10,7 @@
   "dependencies": {
     "@sentry/tracing": "^6.2.1",
     "@sentry/vue": "^6.2.1",
+    "@vue/component-compiler-utils": "^3.1.2",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
@@ -28,7 +29,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
-    "vue-cli-plugin-apollo": "~0.22.2",
     "vue-cli-plugin-compression": "~1.0.3"
   },
   "eslintConfig": {
