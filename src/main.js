@@ -2,10 +2,8 @@ import { createApp, h } from "vue";
 import App from "./App.vue";
 import * as Sentry from "@sentry/vue";
 import { Integrations } from "@sentry/tracing";
-import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import VueApollo from "vue-apollo";
+import VueApollo from '@vue/apollo-option'
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 
 Sentry.init({
   dsn:
@@ -29,7 +27,7 @@ const httpLink = createHttpLink({
 // Cache implementation
 const cache = new InMemoryCache();
 
-// Create the apollo client
+// Create the apollo client // function we can query easily . HOC
 const apolloClient = new ApolloClient({
   link: httpLink,
   cache,
@@ -39,10 +37,11 @@ const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
 });
 
-
-createApp({
+const app = createApp({
   el: "#app",
   // inject apolloProvider here like vue-router or vuex
   apolloProvider,
   render: () => h(App),
-}).mount("#app");
+});
+// app.use(VueApollo);
+app.mount("#app");

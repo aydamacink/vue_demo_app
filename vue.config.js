@@ -1,5 +1,8 @@
 module.exports = {
   pluginOptions: {
+    apollo: {
+      lintGQL: true,
+    },
     compression: {
       brotli: {
         filename: "[path].br[query]",
