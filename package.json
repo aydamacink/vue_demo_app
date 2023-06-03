@@ -9,7 +9,7 @@
     "cy:start": "cypress open"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.13",
+    "@apollo/client": "^3.7.14",
     "@sentry/tracing": "^6.2.1",
     "@sentry/vue": "^6.2.1",
     "@vue/apollo-option": "^4.0.0-alpha.11",
